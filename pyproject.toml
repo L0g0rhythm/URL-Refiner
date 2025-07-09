@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "url-refiner"
+version = "1.2.0" # Version bump to reflect the fix
+description = "A robust and elegant tool to process and deduplicate URLs."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT License" }
+authors = [
+    { name = "Victor Oliveira (L0g0rhythm)", email = "victorvernier@protonmail.com" },
+]
+
+dependencies = ["typer[all]"]
+
+[project.optional-dependencies]
+gui = ["eel"]
+dev = ["pytest"]
+
+[project.scripts]
+url-refiner = "url_refiner.cli:app"
+url-refiner-gui = "url_refiner.gui:start_gui"
+
+[tool.setuptools]
+packages = [
+    "url_refiner",
+] # You can keep this or change to the find directive below
+# packages = find: {} # Alternative robust directive
